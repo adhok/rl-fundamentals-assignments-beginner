@@ -43,7 +43,65 @@ need to master Reinforcement Learning concepts.
     cd rl-fundamentals-assignments
     ```
 
-3. **Explore Assignments:**
+3. **Create a Virtual Environment:**
+
+    Make sure you have Python installed. Then, create a virtual environment:
+
+    ```bash
+    python -m venv venv
+    ```
+
+4. **Activate the Virtual Environment:**
+
+    - On **Windows**:
+
+      ```bash
+      venv\Scripts\activate
+      ```
+
+    - On **macOS/Linux**:
+
+      ```bash
+      source venv/bin/activate
+      ```
+
+5. **Install the Required Packages:**
+
+    Once the virtual environment is activated, run:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+6. **Add the Project Directory to PYTHONPATH:**
+
+    If you encounter an error like ModuleNotFoundError: No module named 'rl', it is likely that the rl folder is not part of your Python path. To resolve this, you can add the project directory to your Python path:
+  
+    1. ***Temporary Solution:***
+    
+        Windows:
+        
+        Open a terminal in the main directory of the course project (where the rl folder is located).
+        
+        Run the following command:
+        
+        ```set PYTHONPATH=%PYTHONPATH%;%CD%```
+        
+        Mac/Linux:
+        
+        In a terminal, navigate to the project's main directory (where the rl folder is located).
+        
+        Run the following command:
+        
+        ```export PYTHONPATH="${PYTHONPATH}:$(pwd)"```
+    
+    2. ***Permanent Solution:***
+      
+        Windows: Add the directory path to your system environment variables in "System Properties" -> "Environment Variables".
+        
+        Mac/Linux: Add the export `PYTHONPATH="${PYTHONPATH}:$(pwd)"` line to your shell configuration file (e.g., .bashrc, .zshrc). This will ensure that the path is set every time you open a terminal.
+
+7. **Explore Assignments:**
 
     Each assignment has its own markdown file within the `assignments/` directory. Navigate to the desired assignment folder and follow the guidelines to complete the tasks.
 
