@@ -1,4 +1,4 @@
-# general.py
+# rl/utils/general.py
 
 import os
 import numpy as np
@@ -33,7 +33,6 @@ def argmax_ties_random(q_values: np.ndarray) -> int:
     Returns:
         int: The action to take.
     """
-
     # Initialise variables. These two variables facilitate tracking ties and the best action
     top = float("-inf")
     ties = []
@@ -43,21 +42,18 @@ def argmax_ties_random(q_values: np.ndarray) -> int:
 
         # If current action value beats previous best...
         if q_values[i] > top:
-
-            # HOMEWORK: reset "top" value as the current action value
-            top  = None  # TODO: Implement this assignment
-
-            # HOMEWORK: reset the ties list as a list length 1, only containing this action
-            ties  = None  # TODO: Implement this assignment
+            # reset "top" value as the current action value
+            top = q_values[i]
+            # reset the ties list as a list length 1, only containing this action
+            ties = [i]
 
         # If current action value ties with previous best...
         elif q_values[i] == top:
+            # append this action to the "ties" list
+            ties.append(i)
 
-            # HOMEWORK: append this action to the "ties" list
-            # TODO: Implement this line
-
-    # HOMEWORK: use np.random.choice to select an action with uniform probability from the ties list
-    selected_action  = None  # TODO: Implement this assignment
+    # use np.random.choice to select an action with uniform probability from the ties list
+    selected_action = np.random.choice(ties)
 
     return selected_action
 
